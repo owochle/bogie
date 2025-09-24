@@ -1,5 +1,8 @@
-use std::{fmt, iter};
-use std::fmt::{Debug, Formatter};
+#![no_std]
+
+use core::{fmt, iter};
+use core::ops::Fn;
+use core::fmt::{Debug, Formatter};
 
 #[doc(hidden)]
 pub struct FnFormat<F>(pub F)
@@ -153,7 +156,7 @@ impl<'a> FormatterExt for Formatter<'a> {
     }
 
     fn debug_struct_fields_finish<'b>(&'b mut self, name: &str, names: &[&str], values: &[&dyn Debug]) -> fmt::Result {
-        assert_eq!(names.len(), values.len());
+        core::assert_eq!(names.len(), values.len());
 
         let mut builder = self.debug_struct(name);
         for (name, value) in iter::zip(names, values) {

@@ -7,7 +7,7 @@ authors = ["OwOchlé <romeoboub@gmail.com>"]
 license = "MIT"
 version = "0.1.0"
 edition = "2024"
-keywords = ["derive", "debug"]
+keywords = ["derive", "debug", "no_std"]
 
 [dependencies]
 bogie_derive = { version = "0", path = "../bogie_derive" }
