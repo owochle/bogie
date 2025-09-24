@@ -1,6 +1,6 @@
 [package]
 name = "bogie_derive"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["OwOchlé <romeoboub@gmail.com>"]
 description = "Macro crate for bogie"
 edition = "2024"
