@@ -1,6 +1,7 @@
 [package]
 name = "bogie"
 description = "A better alternative to the Debug derive"
+readme = "README.md"
 repository = "https://github.com/owochle/bogie"
 authors = ["OwOchlé <romeoboub@gmail.com>"]
 license = "MIT"
