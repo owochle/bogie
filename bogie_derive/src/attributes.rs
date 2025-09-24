@@ -100,22 +100,22 @@ impl Formatter {
             }
             Formatter::Display => {
                 quote! {
-                    &bogie::FnFormat(|f| std::fmt::Display::fmt(&#field_tokens, f))
+                    &bogie::FnFormat(|f| core::fmt::Display::fmt(&#field_tokens, f))
                 }
             }
             Formatter::UpperHex => {
                 quote! {
-                    &bogie::FnFormat(|f| std::fmt::UpperHex::fmt(&#field_tokens, f))
+                    &bogie::FnFormat(|f| core::fmt::UpperHex::fmt(&#field_tokens, f))
                 }
             }
             Formatter::LowerHex => {
                 quote! {
-                    &bogie::FnFormat(|f| std::fmt::LowerHex::fmt(&#field_tokens, f))
+                    &bogie::FnFormat(|f| core::fmt::LowerHex::fmt(&#field_tokens, f))
                 }
             }
             Formatter::Binary => {
                 quote! {
-                    &bogie::FnFormat(|f| std::fmt::Binary::fmt(&#field_tokens, f))
+                    &bogie::FnFormat(|f| core::fmt::Binary::fmt(&#field_tokens, f))
                 }
             }
             Formatter::Empty => {

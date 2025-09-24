@@ -4,7 +4,7 @@ description = "Core utils for bogie"
 authors = ["OwOchlé <romeoboub@gmail.com>"]
 readme = "README.md"
 repository = "https://github.com/owochle/bogie"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2024"
 license = "MIT"
 
