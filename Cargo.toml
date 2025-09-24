@@ -1,0 +1,11 @@
+[workspace]
+resolver = "3"
+members = [
+    "bogie",
+    "bogie_core",
+    "bogie_derive"
+]
+
+[patch.crates-io]
+bogie_core = { path = "bogie_core" }
+bogie_derive = { path = "bogie_derive" }

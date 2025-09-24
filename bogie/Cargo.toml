@@ -1,0 +1,16 @@
+[package]
+name = "bogie"
+description = "A better alternative to the Debug derive"
+repository = "https://github.com/owochle/bogie"
+authors = ["OwOchlé <romeoboub@gmail.com>"]
+license = "MIT"
+version = "0.1.0"
+edition = "2024"
+keywords = ["derive", "debug"]
+
+[dependencies]
+bogie_derive = { version = "0", path = "../bogie_derive" }
+bogie_core = { version = "0", path = "../bogie_core" }
+
+[dev-dependencies]
+base64 = "0.22.1"
