@@ -34,6 +34,14 @@ pub struct Options {
     pub upper_hex: bool,
     #[darling(rename = "hex", default)]
     pub lower_hex: bool,
+    #[darling(rename = "oct", default)]
+    pub octal: bool,
+    #[darling(rename = "ptr", default)]
+    pub pointer: bool,
+    #[darling(rename = "Exp", default)]
+    pub upper_exp: bool,
+    #[darling(rename = "exp", default)]
+    pub lower_exp: bool,
     #[darling(rename = "bin", default)]
     pub binary: bool,
     #[darling(rename = "empty", default)]
@@ -44,7 +52,18 @@ pub struct Options {
 
 impl Options {
     fn sum(&self) -> usize {
-        self.skip as usize + self.debug as usize + self.display as usize + self.upper_hex as usize + self.lower_hex as usize + self.binary as usize + self.empty as usize + self.fn_path.is_some() as usize
+        self.skip as usize +
+            self.debug as usize +
+            self.display as usize +
+            self.upper_hex as usize +
+            self.lower_hex as usize +
+            self.binary as usize +
+            self.empty as usize +
+            self.octal as usize +
+            self.pointer as usize +
+            self.upper_exp as usize +
+            self.lower_exp as usize +
+            self.fn_path.is_some() as usize
     }
 
     fn check(self) -> darling::Result<Self> {
@@ -66,6 +85,14 @@ impl Options {
             Some(Formatter::UpperHex)
         } else if self.lower_hex {
             Some(Formatter::LowerHex)
+        } else if self.octal {
+            Some(Formatter::Octal)
+        } else if self.pointer {
+            Some(Formatter::Pointer)
+        } else if self.upper_exp {
+            Some(Formatter::UpperExp)
+        } else if self.lower_exp {
+            Some(Formatter::LowerExp)
         } else if self.binary {
             Some(Formatter::Binary)
         } else if self.empty {
@@ -84,6 +111,10 @@ pub enum Formatter {
     Display,
     UpperHex,
     LowerHex,
+    Octal,
+    Pointer,
+    UpperExp,
+    LowerExp,
     Binary,
     Empty,
     FnPath(Path)
@@ -111,6 +142,26 @@ impl Formatter {
             Formatter::LowerHex => {
                 quote! {
                     &bogie::FnFormat(|f| core::fmt::LowerHex::fmt(&#field_tokens, f))
+                }
+            }
+            Formatter::Octal => {
+                quote! {
+                    &bogie::FnFormat(|f| core::fmt::Octal::fmt(&#field_tokens, f))
+                }
+            }
+            Formatter::Pointer => {
+                quote! {
+                    &bogie::FnFormat(|f| core::fmt::Pointer::fmt(&#field_tokens, f))
+                }
+            }
+            Formatter::UpperExp => {
+                quote! {
+                    &bogie::FnFormat(|f| core::fmt::UpperExp::fmt(&#field_tokens, f))
+                }
+            }
+            Formatter::LowerExp => {
+                quote! {
+                    &bogie::FnFormat(|f| core::fmt::LowerExp::fmt(&#field_tokens, f))
                 }
             }
             Formatter::Binary => {

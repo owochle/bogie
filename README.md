@@ -40,6 +40,10 @@ In this example, when formatting this struct using its debug:
 - `display`: Use the `Display` formatter.
 - `Hex`: Use the `UpperHex` formatter.
 - `hex`: Use the `LowerHex` formatter.
+- `oct`: Use the `Octal` formatter.
+- `ptr`: Use the `Pointer` formatter.
+- `Exp`: Use the `UpperExp` formatter.
+- `exp`: Use the `LowerExp` formatter.
 - `bin`: Use the `Binary` formatter.
 - `empty`: Prints `()` instead of the content of this field. Useful for redacting tokens/secrets 
   or for fields not implementing any formatters.
