@@ -1,4 +1,7 @@
 # Bogie 🚃
+![GitHub License](https://img.shields.io/github/license/owochle/bogie?style=for-the-badge)
+[![Crates.io Version](https://img.shields.io/crates/v/bogie?style=for-the-badge)](https://crates.io/crates/bogie)
+
 Bogie is an alternative to the default `Debug` derive which lacks a lot of features.
 
 ## Usage
